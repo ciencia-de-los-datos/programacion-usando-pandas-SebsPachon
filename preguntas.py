@@ -15,6 +15,7 @@ tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
 
+
 def pregunta_01():
     """
     Â¿CuÃ¡l es la cantidad de filas en la tabla `tbl0.tsv`?
@@ -66,7 +67,7 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return
+    return(tbl0.groupby('_c1')['_c2'].mean())
 
 
 def pregunta_05():
@@ -83,7 +84,7 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    return
+    return(tbl0.groupby('_c1')['_c2'].max())
 
 
 def pregunta_06():
@@ -100,6 +101,7 @@ def pregunta_06():
     Upper.sort()
     
     return(Upper)
+
 
 
 def pregunta_07():
