@@ -14,31 +14,33 @@ tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
 tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
+
+
 def pregunta_01():
     """
-    ¿Cuál es la cantidad de filas en la tabla `tbl0.tsv`?
+    Â¿CuÃ¡l es la cantidad de filas en la tabla `tbl0.tsv`?
 
     Rta/
     40
 
     """
-    return
+    return(len(tbl0))
 
 
 def pregunta_02():
     """
-    ¿Cuál es la cantidad de columnas en la tabla `tbl0.tsv`?
+    Â¿CuÃ¡l es la cantidad de columnas en la tabla `tbl0.tsv`?
 
     Rta/
     4
 
     """
-    return
+    return(len(tbl0.loc[0,:]))
 
 
 def pregunta_03():
     """
-    ¿Cuál es la cantidad de registros por cada letra de la columna _c1 del archivo
+    Â¿CuÃ¡l es la cantidad de registros por cada letra de la columna _c1 del archivo
     `tbl0.tsv`?
 
     Rta/
@@ -50,7 +52,7 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+    return(tbl0._c1.value_counts().sort_index())
 
 
 def pregunta_04():
@@ -65,12 +67,12 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return
+    return(tbl0.groupby('_c1')['_c2'].mean())
 
 
 def pregunta_05():
     """
-    Calcule el valor máximo de _c2 por cada letra en la columna _c1 del archivo
+    Calcule el valor mÃ¡ximo de _c2 por cada letra en la columna _c1 del archivo
     `tbl0.tsv`.
 
     Rta/
@@ -82,19 +84,24 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    return
+    return(tbl0.groupby('_c1')['_c2'].max())
 
 
 def pregunta_06():
     """
     Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
-    en mayusculas y ordenados alfabéticamente.
+    en mayusculas y ordenados alfabÃ©ticamente.
 
     Rta/
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    Unique=tbl1._c4.unique().tolist()
+    Upper=[str(word).upper() for word in Unique]
+    Upper.sort()
+    
+    return(Upper)
+
 
 
 def pregunta_07():
