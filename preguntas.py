@@ -14,6 +14,7 @@ tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
 tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
 
+
 def pregunta_01():
     """
     Â¿CuÃ¡l es la cantidad de filas en la tabla `tbl0.tsv`?
@@ -50,7 +51,8 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return( tbl0.sort_values(by=['_c1'])._c1.value_counts())
+    return(tbl0._c1.value_counts().sort_index())
+
 
 def pregunta_04():
     """
@@ -69,7 +71,7 @@ def pregunta_04():
 
 def pregunta_05():
     """
-    Calcule el valor máximo de _c2 por cada letra en la columna _c1 del archivo
+    Calcule el valor mÃ¡ximo de _c2 por cada letra en la columna _c1 del archivo
     `tbl0.tsv`.
 
     Rta/
@@ -87,13 +89,13 @@ def pregunta_05():
 def pregunta_06():
     """
     Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
-    en mayusculas y ordenados alfabéticamente.
+    en mayusculas y ordenados alfabÃ©ticamente.
 
     Rta/
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-       Unique=tbl1._c4.unique().tolist()
+    Unique=tbl1._c4.unique().tolist()
     Upper=[str(word).upper() for word in Unique]
     Upper.sort()
     
