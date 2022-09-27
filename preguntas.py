@@ -93,7 +93,11 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+       Unique=tbl1._c4.unique().tolist()
+    Upper=[str(word).upper() for word in Unique]
+    Upper.sort()
+    
+    return(Upper)
 
 
 def pregunta_07():
