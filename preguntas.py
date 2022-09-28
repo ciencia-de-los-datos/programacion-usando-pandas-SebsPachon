@@ -97,6 +97,8 @@ def pregunta_06():
     return
 
 
+d
+
 def pregunta_07():
     """
     Calcule la suma de la _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
@@ -110,7 +112,7 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    return
+    return (tbl0.groupby('_c1')['_c2'].sum())
 
 
 def pregunta_08():
@@ -128,7 +130,8 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
+    tbl0['suma']=tbl10._c0+tbl10_c2
+    return(tbl0)
 
 
 def pregunta_09():
