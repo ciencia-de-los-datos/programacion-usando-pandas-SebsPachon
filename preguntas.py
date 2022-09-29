@@ -183,15 +183,6 @@ def pregunta_11():
         tabla['_c4'][i]=",". join(tabla['_c4'][i])
     # tabla[1:-1].replace(',',':')
     return(tabla)
-    lista=[str(tbl2['_c5a'][i])+':'+str(tbl2['_c5b'][i]) for i in range(len(tbl2))]
-    tbl2['_c5']=lista
-    tabla=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
-    # tabla['_c5'].replace('[','').replace(']','')
-    # for i in range(len(tbl2)):
-        # tabla['_c5']=str(tabla['_c5'])
-    for i in range(len(tbl2)):   
-        tabla['_c5'][i]=str(tabla['_c5'][i])
-        .replace('[','').replace(']','').replace("'",'').replace(' ','')
     
 def pregunta_12():
     """
