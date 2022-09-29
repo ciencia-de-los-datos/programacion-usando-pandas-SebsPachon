@@ -10,9 +10,6 @@ tbl0 = pd.read_csv("tbl0.tsv", sep="\t")
 tbl1 = pd.read_csv("tbl1.tsv", sep="\t")
 tbl2 = pd.read_csv("tbl2.tsv", sep="\t")
 
-
-
-
 def pregunta_01():
     """
     Â¿CuÃ¡l es la cantidad de filas en la tabla `tbl0.tsv`?
@@ -21,7 +18,6 @@ def pregunta_01():
     """
     return(len(tbl0))
 
-
 def pregunta_02():
     """
     Â¿CuÃ¡l es la cantidad de columnas en la tabla `tbl0.tsv`?
@@ -29,7 +25,6 @@ def pregunta_02():
     4
     """
     return(len(tbl0.loc[0,:]))
-
 
 def pregunta_03():
     """
@@ -45,7 +40,6 @@ def pregunta_03():
     """
     return(tbl0._c1.value_counts().sort_index())
 
-
 def pregunta_04():
     """
     Calcule el promedio de _c2 por cada letra de la _c1 del archivo `tbl0.tsv`.
@@ -58,7 +52,6 @@ def pregunta_04():
     Name: _c2, dtype: float64
     """
     return(tbl0.groupby('_c1')['_c2'].mean())
-
 
 def pregunta_05():
     """
@@ -75,7 +68,6 @@ def pregunta_05():
     """
     return(tbl0.groupby('_c1')['_c2'].max())
 
-
 def pregunta_06():
     """
     Retorne una lista con los valores unicos de la columna _c4 de del archivo `tbl1.csv`
@@ -85,11 +77,8 @@ def pregunta_06():
     """
     Unique=tbl1._c4.unique().tolist()
     Upper=[str(word).upper() for word in Unique]
-    Upper.sort()
-    
+    Upper.sort()    
     return(Upper)
-
-
 
 def pregunta_07():
     """
@@ -104,7 +93,6 @@ def pregunta_07():
     Name: _c2, dtype: int64
     """
     return(tbl0.groupby('_c1')['_c2'].sum())
-
 
 def pregunta_08():
     """
@@ -122,7 +110,6 @@ def pregunta_08():
     tbl0['suma']=tbl0['_c0']+tbl0['_c2']
     return(tbl0)
 
-
 def pregunta_09():
     """
     Agregue el año como una columna al archivo `tbl0.tsv`.
@@ -138,8 +125,6 @@ def pregunta_09():
     """
     tbl0['year']=tbl0['_c3'].astype(str).str[0:4]
     return(tbl0)
-
-
 
 def pregunta_10():
     """
@@ -159,8 +144,7 @@ def pregunta_10():
         tabla['_c2'][i].sort()
         tabla['_c2'][i]=str(tabla['_c2'][i])[1:-1].replace(',',':').replace(' ','')
         tabla['_c2'][i]=tabla['_c2'][i]
-    tabla=tabla.set_index('_c1')
-    tabla
+    tabla=tabla.set_index('_c1')    
     return(tabla)
 
 def pregunta_11():
@@ -178,10 +162,9 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    tabla=pd.DataFrame(tbl1.groupby('_c0')['_c4'].apply(sum))  
+    tabla=pd.DataFrame(tbl1.groupby('_c0')['_c4'].apply(sum)) 
     for i in range(len(tabla)):
-        tabla['_c4'][i]=",". join(tabla['_c4'][i])
-    # tabla[1:-1].replace(',',':')
+        tabla['_c4'][i]=str(sorted(tabla['_c4'][i])).replace('[','').replace(']','').replace("'",'').replace(' ','')
     return(tabla)
     
 def pregunta_12():
@@ -203,8 +186,7 @@ def pregunta_12():
     tabla=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
 
     for i in range(len(tbl2)):   
-        tabla['_c5'][i]=str(tabla['_c5'][i]).replace('[','').replace(']','').replace("'",'').replace(' ','')
-    tabla
+        tabla['_c5'][i]=str(sorted(tabla['_c5'][i])).replace('[','').replace(']','').replace("'",'').replace(' ','')
     return(tabla)
 
 
