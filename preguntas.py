@@ -120,7 +120,7 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
     """
     tbl0['suma']=tbl0['_c0']+tbl0['_c1']
-    return(tbl10)
+    return(tbl0)
 
 
 def pregunta_09():
@@ -136,7 +136,9 @@ def pregunta_09():
     38   38   E    1  1999-09-28  1999
     39   39   E    5  1998-01-26  1998
     """
-    return
+    tbl0['year']=tbl0['_c3'].astype(str).str[0:4]
+    return(tbl0)
+
 
 
 def pregunta_10():
