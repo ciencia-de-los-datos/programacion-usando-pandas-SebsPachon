@@ -119,7 +119,7 @@ def pregunta_08():
     38   38   E    1  1999-09-28    39
     39   39   E    5  1998-01-26    44
     """
-    tbl0['suma']=tbl0['_c0']+tbl0['_c1']
+    tbl0['suma']=tbl0['_c0']+tbl0['_c2']
     return(tbl0)
 
 
