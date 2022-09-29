@@ -159,7 +159,7 @@ def pregunta_10():
         tabla['_c2'][i].sort()
         tabla['_c2'][i]=str(tabla['_c2'][i])[1:-1].replace(',',':')
         tabla['_c2'][i]=tabla['_c2'][i].replace(' ','')
-
+    tabla=tabla.set_index('_c1')
     return(tabla)
 
 
