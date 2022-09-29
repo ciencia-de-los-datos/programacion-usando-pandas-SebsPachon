@@ -154,11 +154,12 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    tabla=tbl0.groupby('_c1')['_c2'].apply(list).reset_index().rename(columns={'_c1':'_c0','_c2' : '_c1'})
+    tabla=tbl0.groupby('_c1')['_c2'].apply(list).reset_index()
     for i in range(5):
-        tabla['_c1'][i].sort()
-        tabla['_c1'][i]=str(tabla['_c1'][i]).replace(',',':')
-        
+        tabla['_c2'][i].sort()
+        tabla['_c2'][i]=str(tabla['_c2'][i])[1:-1].replace(',',':')
+        tabla['_c2'][i]=tabla['_c2'][i].replace(' ','')
+
     return(tabla)
 
 
