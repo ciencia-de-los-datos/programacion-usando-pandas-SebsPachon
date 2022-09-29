@@ -162,11 +162,6 @@ def pregunta_10():
     tabla=tabla.set_index('_c1')
     return(tabla)
 
-
-
-
-
-
 def pregunta_11():
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
@@ -182,7 +177,11 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    tbl1
+    tabla=tbl1.groupby('_c0')['_c4'].apply(list)
+    tabla
+    # tabla[1:-1].replace(',',':')
+    return(tabla)
 
 
 def pregunta_12():
