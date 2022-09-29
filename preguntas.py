@@ -139,13 +139,13 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    tabla=tbl0.groupby('_c1')['_c2'].apply(list).reset_index()
+    tabla10=tbl0.groupby('_c1')['_c2'].apply(list).reset_index()
     for i in range(5):
-        tabla['_c2'][i].sort()
-        tabla['_c2'][i]=str(tabla['_c2'][i])[1:-1].replace(',',':').replace(' ','')
-        tabla['_c2'][i]=tabla['_c2'][i]
-    tabla=tabla.set_index('_c1')    
-    return(tabla)
+        tabla10['_c2'][i].sort()
+        tabla10['_c2'][i]=str(tabla10['_c2'][i])[1:-1].replace(',',':').replace(' ','')
+        tabla10['_c2'][i]=tabla10['_c2'][i]
+    tabla10=tabla10.set_index('_c1')    
+    return(tabla10)
 
 def pregunta_11():
     """
@@ -162,10 +162,11 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    tabla=pd.DataFrame(tbl1.groupby('_c0')['_c4'].apply(sum)) 
-    for i in range(len(tabla)):
-        tabla['_c4'][i]=str(sorted(tabla['_c4'][i])).replace('[','').replace(']','').replace("'",'').replace(' ','')
-    return(tabla)
+    tabla11=pd.DataFrame(tbl1.groupby('_c0')['_c4'].apply(sum)).reset_index()
+    for i in range(len(tabla11)):
+        tabla11['_c4'][i]=str(sorted(tabla11['_c4'][i])).replace('[','').replace(']','').replace("'",'').replace(' ','')
+    return(tabla11)
+
     
 def pregunta_12():
     """
@@ -183,12 +184,11 @@ def pregunta_12():
     """
     lista=[str(tbl2['_c5a'][i])+':'+str(tbl2['_c5b'][i]) for i in range(len(tbl2))]
     tbl2['_c5']=lista
-    tabla=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
+    tabla12=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
 
     for i in range(len(tbl2)):   
-        tabla['_c5'][i]=str(sorted(tabla['_c5'][i])).replace('[','').replace(']','').replace("'",'').replace(' ','')
-    return(tabla)
-
+        tabla12['_c5'][i]=str(sorted(tabla12['_c5'][i])).replace('[','').replace(']','').replace("'",'').replace(' ','')
+    return(tabla12)
 
 def pregunta_13():
     """
