@@ -202,5 +202,10 @@ def pregunta_13():
     D    112
     E    275
     Name: _c5b, dtype: int64
-    """
-    return
+    """  
+    x=tbl0.merge(tbl2, left_on='_c0', right_on='_c0')
+    x=x.groupby('_c1')['_c5b'].sum()
+    return(x)
+
+
+
