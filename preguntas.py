@@ -157,9 +157,10 @@ def pregunta_10():
     tabla=tbl0.groupby('_c1')['_c2'].apply(list).reset_index()
     for i in range(5):
         tabla['_c2'][i].sort()
-        tabla['_c2'][i]=str(tabla['_c2'][i])[1:-1].replace(',',':')
-        tabla['_c2'][i]=tabla['_c2'][i].replace(' ','')
+        tabla['_c2'][i]=str(tabla['_c2'][i])[1:-1].replace(',',':').replace(' ','')
+        tabla['_c2'][i]=tabla['_c2'][i]
     tabla=tabla.set_index('_c1')
+    tabla
     return(tabla)
 
 def pregunta_11():
@@ -177,13 +178,21 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    tbl1
-    tabla=tbl1.groupby('_c0')['_c4'].apply(list)
-    tabla
+    tabla=pd.DataFrame(tbl1.groupby('_c0')['_c4'].apply(sum))  
+    for i in range(len(tabla)):
+        tabla['_c4'][i]=",". join(tabla['_c4'][i])
     # tabla[1:-1].replace(',',':')
     return(tabla)
-
-
+    lista=[str(tbl2['_c5a'][i])+':'+str(tbl2['_c5b'][i]) for i in range(len(tbl2))]
+    tbl2['_c5']=lista
+    tabla=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
+    # tabla['_c5'].replace('[','').replace(']','')
+    # for i in range(len(tbl2)):
+        # tabla['_c5']=str(tabla['_c5'])
+    for i in range(len(tbl2)):   
+        tabla['_c5'][i]=str(tabla['_c5'][i])
+        .replace('[','').replace(']','').replace("'",'').replace(' ','')
+    
 def pregunta_12():
     """
     Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
@@ -198,7 +207,14 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    lista=[str(tbl2['_c5a'][i])+':'+str(tbl2['_c5b'][i]) for i in range(len(tbl2))]
+    tbl2['_c5']=lista
+    tabla=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
+
+    for i in range(len(tbl2)):   
+        tabla['_c5'][i]=str(tabla['_c5'][i]).replace('[','').replace(']','').replace("'",'').replace(' ','')
+    tabla
+    return(tabla)
 
 
 def pregunta_13():
