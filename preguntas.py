@@ -182,8 +182,23 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
+    
+def pregunta_12():
+    """
+    Construya una tabla que contenga _c0 y una lista separada por ',' de los valores de
+    la columna _c5a y _c5b (unidos por ':') de la tabla `tbl2.tsv`.
+    Rta/
+        _c0                                  _c5
+    0     0        bbb:0,ddd:9,ggg:8,hhh:2,jjj:3
+    1     1              aaa:3,ccc:2,ddd:0,hhh:9
+    2     2              ccc:6,ddd:2,ggg:5,jjj:1
+    ...
+    37   37                    eee:0,fff:2,hhh:6
+    38   38                    eee:0,fff:9,iii:2
+    39   39                    ggg:3,hhh:8,jjj:5
+    """
     lista=[str(tbl2['_c5a'][i])+':'+str(tbl2['_c5b'][i]) for i in range(len(tbl2))]
-
+    tbl2['_c5']=lista
     tabla12=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
     tabla12['_c5']=tabla12['_c5'].map(lambda x:str(sorted(x[:])).replace('[','').replace(']','').replace("'",'').replace(' ',''))
     return(tabla12)
@@ -204,4 +219,5 @@ def pregunta_13():
     x=tbl0.merge(tbl2, left_on='_c0', right_on='_c0')
     x=x.groupby('_c1')['_c5b'].sum()
     return(x)
+
 
