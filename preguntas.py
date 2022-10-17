@@ -191,7 +191,6 @@ def pregunta_12():
         tabla12['_c5'][j]=sorted(tabla12['_c5'][j])
         tabla12['_c5'][j]=str(tabla12['_c5'][j]).replace('[','').replace(']','').replace("'",'').replace(' ','')
     return(tabla12)
-pregunta_12()
 
 def pregunta_13():
     """
