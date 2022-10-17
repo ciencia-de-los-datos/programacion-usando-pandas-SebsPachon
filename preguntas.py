@@ -183,13 +183,9 @@ def pregunta_12():
     39   39                    ggg:3,hhh:8,jjj:5
     """
     lista=[str(tbl2['_c5a'][i])+':'+str(tbl2['_c5b'][i]) for i in range(len(tbl2))]
-    tbl2['_c5']=lista
-    tbl2
+
     tabla12=tbl2.groupby('_c0')['_c5'].apply(list).reset_index()
-    
-    for j in range(len(tbl2)):   
-        tabla12['_c5'][j]=sorted(tabla12['_c5'][j])
-        tabla12['_c5'][j]=str(tabla12['_c5'][j]).replace('[','').replace(']','').replace("'",'').replace(' ','')
+    tabla12['_c5']=tabla12['_c5'].map(lambda x:str(sorted(x[:])).replace('[','').replace(']','').replace("'",'').replace(' ',''))
     return(tabla12)
 
 def pregunta_13():
